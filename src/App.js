@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import ChartContainer from './ChartContainer'
+import { useState } from 'react'
+import CaseSelector from './CaseSelector';
+import Header from './Header'
 
 function App() {
+
+  const [chosenCase, chooseNewCase] = useState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+    <Header />
+    <CaseSelector chosenCase={chosenCase} chooseNewCase={chooseNewCase}/>
+    <ChartContainer chosenCase={chosenCase}/>
+  </>
+  )
 }
 
 export default App;
